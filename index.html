@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reese G Chen — UX/UI Portfolio</title>
+<meta name="description" content="Reese G Chen — UX/UI Designer portfolio. 手艺人,专注于复杂系统的简化设计。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0a0a0c;
+    --bg-elevated: #111114;
+    --border: #202024;
+    --border-soft: #1a1a1e;
+    --text-primary: #f2f2ef;
+    --text-secondary: #9a9aa2;
+    --text-tertiary: #58585e;
+    --accent: #4a92ff;
+    --accent-dim: #2f6fd6;
+    --accent-soft: rgba(74, 146, 255, 0.14);
+    --font-display: 'Manrope', 'Noto Sans SC', sans-serif;
+    --font-body: 'Inter', 'Noto Sans SC', sans-serif;
+    --sidebar-w: 264px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { -webkit-font-smoothing: antialiased; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .cn {
+    display: block;
+    font-family: 'Noto Sans SC', sans-serif;
+    color: var(--text-tertiary);
+    font-weight: 400;
+  }
+
+  .cn-inline {
+    font-family: 'Noto Sans SC', sans-serif;
+    color: var(--text-tertiary);
+    font-weight: 400;
+  }
+
+  /* ---------- Layout ---------- */
+
+  .layout {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    width: var(--sidebar-w);
+    flex-shrink: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 40px 32px;
+    border-right: 1px solid var(--border-soft);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .main {
+    margin-left: var(--sidebar-w);
+    width: calc(100% - var(--sidebar-w));
+    padding: 40px 72px 120px;
+  }
+
+  /* ---------- Sidebar ---------- */
+
+  .site-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  .site-role {
+    margin-top: 4px;
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
+
+  .sb-nav {
+    margin-top: 28px;
+  }
+
+  .sb-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 8px 0;
+    transition: color 0.15s ease;
+  }
+
+  .sb-link:hover { color: var(--text-primary); }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-tertiary);
+    flex-shrink: 0;
+  }
+
+  .sb-section-label {
+    margin-top: 36px;
+    margin-bottom: 4px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    font-weight: 600;
+  }
+
+  .project-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    font-size: 14px;
+  }
+
+  .project-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .project-swatch.nh, .project-swatch.yj { background: linear-gradient(135deg, #2f6fd6, #4a92ff); }
+
+  .project-name {
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .project-name .cn-inline {
+    margin-left: 6px;
+    font-size: 12px;
+  }
+
+  .project-sub {
+    margin-top: 2px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+  }
+
+  .contact-list {
+    margin-top: 4px;
+  }
+
+  .contact-list .sb-link {
+    padding: 7px 0;
+  }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding-top: 24px;
+    font-size: 11px;
+    color: var(--text-tertiary);
+  }
+
+  /* ---------- Top nav (main) ---------- */
+
+  .topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding-bottom: 56px;
+  }
+
+  .topnav a { font-weight: 500; }
+  .topnav a:hover { color: var(--text-primary); }
+
+  .topnav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .avatar-chip {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%, #7fb4ff, #4a92ff 55%, #2f6fd6);
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero { max-width: 640px; }
+
+  .orb {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 26%, #a8ccff 0%, #4a92ff 45%, #1f52a8 100%);
+    box-shadow: 0 0 0 1px rgba(74,146,255,0.15), 0 12px 40px -8px rgba(74,146,255,0.55);
+    margin-bottom: 32px;
+    animation: breathe 5s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 1px rgba(74,146,255,0.15), 0 12px 40px -8px rgba(74,146,255,0.55); }
+    50% { transform: scale(1.045); box-shadow: 0 0 0 1px rgba(74,146,255,0.2), 0 16px 52px -8px rgba(74,146,255,0.7); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .orb { animation: none; }
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.2vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .hero h1 .cn {
+    margin-top: 6px;
+    font-size: 0.62em;
+    font-weight: 500;
+  }
+
+  .hero .subtext {
+    margin-top: 20px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .hero .subtext .cn {
+    margin-top: 6px;
+    font-size: 0.95em;
+    color: var(--text-tertiary);
+  }
+
+  .tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .tag .pin {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .tag .cn-inline {
+    color: var(--text-tertiary);
+    font-size: 12px;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 32px;
+    padding: 12px 22px;
+    border-radius: 8px;
+    background: var(--text-primary);
+    color: #0a0a0c;
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  .cta:hover { background: var(--accent); color: #fff; transform: translateY(-1px); }
+  .cta .cn-inline { color: inherit; opacity: 0.6; font-weight: 500; }
+
+  /* ---------- Section: Team / Education ---------- */
+
+  .section {
+    margin-top: 80px;
+    max-width: 760px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    padding: 18px 0;
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .row:last-child { border-bottom: 1px solid var(--border-soft); }
+
+  .row-main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 10px;
+    font-size: 15px;
+  }
+
+  .row-org {
+    font-weight: 700;
+    font-family: var(--font-display);
+  }
+
+  .row-org .cn-inline { font-family: 'Noto Sans SC', sans-serif; font-weight: 500; font-size: 0.85em; margin-left: 4px; }
+
+  .row-sep { color: var(--text-tertiary); }
+
+  .row-role {
+    color: var(--text-secondary);
+  }
+
+  .row-role .cn-inline { font-size: 0.85em; margin-left: 4px; }
+
+  .row-year {
+    flex-shrink: 0;
+    font-size: 13px;
+    color: var(--text-tertiary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- Section: Selected Work (case cards) ---------- */
+
+  .case-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 900px;
+  }
+
+  .case-caption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    margin-bottom: 12px;
+  }
+
+  .case-caption .cn-inline { font-size: 0.95em; }
+
+  .case-caption-sep { color: var(--text-tertiary); opacity: 0.5; }
+
+  .case-card {
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    padding: 44px 48px;
+    min-height: 320px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .case-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.55);
+  }
+
+  .case-card.nh, .case-card.yj { background: linear-gradient(135deg, #163a73 0%, #2f6fd6 45%, #4a92ff 100%); }
+
+  .case-content {
+    position: relative;
+    z-index: 2;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .case-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: #fff;
+  }
+
+  .case-logo svg { width: 20px; height: 20px; }
+
+  .case-title {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.6vw, 28px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.25;
+  }
+
+  .case-title .cn-inline {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.5em;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .case-meta-row {
+    display: flex;
+    gap: 32px;
+    margin-top: auto;
+    padding-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .case-meta-row .meta-item .label {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 4px;
+  }
+
+  .case-meta-row .meta-item .value {
+    font-size: 13px;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .case-visual {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    bottom: 40px;
+    width: 40%;
+    min-width: 200px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    cursor: zoom-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .case-visual:hover,
+  .case-visual:focus-visible {
+    transform: scale(1.015);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18), 0 20px 50px -14px rgba(0, 0, 0, 0.5);
+  }
+
+  .case-visual .zoom-icon {
+    width: 22px;
+    height: 22px;
+    color: rgba(255, 255, 255, 0.75);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .case-visual:hover .zoom-icon,
+  .case-visual:focus-visible .zoom-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .case-visual { transition: none; }
+  }
+
+  @media (max-width: 720px) {
+    .case-card { padding: 32px 28px; min-height: auto; }
+    .case-content { max-width: 100%; }
+    .case-visual { position: static; width: 100%; margin-top: 28px; aspect-ratio: 16 / 9; }
+  }
+
+  /* ---------- Lightbox ---------- */
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(5, 5, 6, 0.88);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lightbox img {
+    max-width: 88vw;
+    max-height: 84vh;
+    border-radius: 12px;
+    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+    transform: scale(0.96);
+    transition: transform 0.25s ease;
+  }
+
+  .lightbox.open img {
+    transform: scale(1);
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 28px;
+    right: 32px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .lightbox-close:hover { background: rgba(255, 255, 255, 0.16); }
+  .lightbox-close svg { width: 16px; height: 16px; }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 860px) {
+    .sidebar {
+      position: static;
+      width: 100%;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid var(--border-soft);
+      padding: 28px 24px;
+    }
+    .main {
+      margin-left: 0;
+      width: 100%;
+      padding: 32px 24px 100px;
+    }
+    .layout { flex-direction: column; }
+    .sidebar-footer { margin-top: 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .row { flex-direction: column; align-items: flex-start; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div>
+      <div class="site-title">Reese G Chen</div>
+      <div class="site-role">UX / Product Designer</div>
+    </div>
+
+    <nav class="sb-nav" aria-label="Primary">
+      <a class="sb-link" href="#top"><span class="dot"></span>About me <span class="cn-inline">关于我</span></a>
+    </nav>
+
+    <div class="sb-section-label">Projects 项目</div>
+    <nav aria-label="Projects">
+      <a class="project-item" href="#project-nanhang">
+        <span class="project-swatch nh"></span>
+        <span>
+          <div class="project-name">南航翔翼<span class="cn-inline">Southern Airlines</span></div>
+          <div class="project-sub">B端排班系统改版</div>
+        </span>
+      </a>
+      <a class="project-item" href="#project-yueji">
+        <span class="project-swatch yj"></span>
+        <span>
+          <div class="project-name">阅迹<span class="cn-inline">Yuè Jì</span></div>
+          <div class="project-sub">AI 阅读反思概念</div>
+        </span>
+      </a>
+    </nav>
+
+    <div class="sb-section-label">Contact 联系方式</div>
+    <div class="contact-list">
+      <a class="sb-link" href="#">Email</a>
+      <a class="sb-link" href="#">LinkedIn</a>
+      <a class="sb-link" href="#">Instagram</a>
+    </div>
+
+    <div class="sidebar-footer">© 2026 Reese G Chen</div>
+  </aside>
+
+  <main class="main" id="top">
+
+    <div class="topnav">
+      <a href="#top">Home 首页</a>
+      <div class="topnav-right">
+        <span class="avatar-chip" aria-hidden="true"></span>
+        <a href="#top">About me 关于我</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="orb" aria-hidden="true"></div>
+
+      <h1>
+        UX/UI Designer with a focus on craft and execution.
+        <span class="cn">专注手艺与落地的 UX/UI 设计师。</span>
+      </h1>
+
+      <p class="subtext">
+        I design and build digital products &amp; visual interfaces — welcome to my small corner of the web.
+        <span class="cn">我设计并搭建数字产品与视觉界面——欢迎来到我的网络小角落。</span>
+      </p>
+
+      <div class="tags">
+        <span class="tag"><span class="pin"></span>London, UK <span class="cn-inline">伦敦</span></span>
+        <span class="tag"><span class="pin"></span>Guangzhou, China <span class="cn-inline">广州</span></span>
+      </div>
+
+      <a class="cta" href="#">Contact me <span class="cn-inline">联系我</span></a>
+    </section>
+
+    <section class="section" aria-labelledby="team-heading">
+      <div class="section-eyebrow" id="team-heading">Team 履历</div>
+
+      <div class="row">
+        <div class="row-main">
+          <span class="row-org">NIO Automobile Co<span class="cn-inline">蔚来汽车</span></span>
+          <span class="row-sep">/</span>
+          <span class="row-role">Associate Product Manager<span class="cn-inline">产品实习生</span></span>
+        </div>
+        <span class="row-year">2025</span>
+      </div>
+
+      <div class="row">
+        <div class="row-main">
+          <span class="row-org">AInnovation Technology Co<span class="cn-inline">创新奇智</span></span>
+          <span class="row-sep">/</span>
+          <span class="row-role">UX/UI Design Intern<span class="cn-inline">UX/UI 设计实习生</span></span>
+        </div>
+        <span class="row-year">2024</span>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="edu-heading">
+      <div class="section-eyebrow" id="edu-heading">Education 教育经历</div>
+
+      <div class="row">
+        <div class="row-main">
+          <span class="row-org">University of the Arts London<span class="cn-inline">伦敦艺术大学</span></span>
+        </div>
+        <span class="row-year">2025–2026</span>
+      </div>
+
+      <div class="row">
+        <div class="row-main">
+          <span class="row-org">Guangzhou Academy of Fine Arts<span class="cn-inline">广州美术学院</span></span>
+        </div>
+        <span class="row-year">2020–2024</span>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="work-heading" style="max-width: 900px;">
+      <div class="section-eyebrow" id="work-heading">Selected Work 精选项目</div>
+
+      <div class="case-list">
+        <div class="case-entry">
+          <div class="case-caption">
+            <span>AInnovation Technology Co <span class="cn-inline">创新奇智</span></span>
+            <span class="case-caption-sep">/</span>
+            <span>UX/UI Design Intern <span class="cn-inline">设计实习生</span></span>
+            <span class="case-caption-sep">/</span>
+            <span>Design for <span class="cn-inline">设计作品</span></span>
+          </div>
+          <a class="case-card nh" href="project-template.html" id="project-nanhang">
+            <div class="case-content">
+              <div class="case-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 16l7-11 4 7 3-5 6 9H2z"/></svg>
+              </div>
+              <div class="case-title">南航翔翼<span class="cn-inline">Southern Airlines Digital Transformation</span></div>
+              <div class="case-meta-row">
+                <div class="meta-item"><div class="label">Main Role</div><div class="value">UX Designer</div></div>
+                <div class="meta-item"><div class="label">Date</div><div class="value">2024 Spring</div></div>
+                <div class="meta-item"><div class="label">Duration</div><div class="value">1 Month</div></div>
+              </div>
+            </div>
+            <div class="case-visual" data-image="" data-alt="南航翔翼产品截图" role="button" tabindex="0" aria-label="放大查看南航翔翼产品截图">
+              <svg class="zoom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </div>
+          </a>
+        </div>
+
+        <div class="case-entry">
+          <div class="case-caption">
+            <span>Designer (me) <span class="cn-inline">设计师(我)</span></span>
+            <span class="case-caption-sep">/</span>
+            <span>Independent Project <span class="cn-inline">独立项目</span></span>
+          </div>
+          <a class="case-card yj" href="project-template.html" id="project-yueji">
+            <div class="case-content">
+              <div class="case-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5a2 2 0 012-2h6l6 6v10a2 2 0 01-2 2H6a2 2 0 01-2-2V5z"/><path d="M12 3v6h6"/></svg>
+              </div>
+              <div class="case-title">阅迹<span class="cn-inline">Yuè Jì — AI Reading Companion</span></div>
+              <div class="case-meta-row">
+                <div class="meta-item"><div class="label">Main Role</div><div class="value">Product Designer</div></div>
+                <div class="meta-item"><div class="label">Date</div><div class="value">2026 Spring</div></div>
+                <div class="meta-item"><div class="label">Duration</div><div class="value">Ongoing 持续中</div></div>
+              </div>
+            </div>
+            <div class="case-visual" data-image="" data-alt="阅迹产品截图" role="button" tabindex="0" aria-label="放大查看阅迹产品截图">
+              <svg class="zoom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="关闭预览">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  function openLightbox(src, alt) {
+    if (!src) return; // 还没放真实图片时,先不弹出
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+  }
+
+  document.querySelectorAll('.case-visual').forEach((visual) => {
+    visual.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openLightbox(visual.dataset.image, visual.dataset.alt);
+    });
+    visual.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        e.stopPropagation();
+        openLightbox(visual.dataset.image, visual.dataset.alt);
+      }
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+
+</body>
+</html>
