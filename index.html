@@ -221,7 +221,8 @@
     width: 76px;
     height: 76px;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 26%, #a8ccff 0%, #4a92ff 45%, #1f52a8 100%);
+    object-fit: cover;
+    display: block;
     box-shadow: 0 0 0 1px rgba(74,146,255,0.15), 0 12px 40px -8px rgba(74,146,255,0.55);
     margin-bottom: 32px;
     animation: breathe 5s ease-in-out infinite;
@@ -295,6 +296,16 @@
     font-size: 12px;
   }
 
+  .tag-time {
+    margin-left: 4px;
+    padding-left: 8px;
+    border-left: 1px solid var(--border);
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+
   .cta {
     display: inline-flex;
     align-items: center;
@@ -310,7 +321,6 @@
   }
 
   .cta:hover { background: var(--accent); color: #fff; transform: translateY(-1px); }
-  .cta .cn-inline { color: inherit; opacity: 0.6; font-weight: 500; }
 
   /* ---------- Section: Team / Education ---------- */
 
@@ -648,7 +658,7 @@
     </div>
 
     <section class="hero">
-      <div class="orb" aria-hidden="true"></div>
+      <img class="orb" src="avatar.png" alt="Reese G Chen 头像">
 
       <h1>
         UX/UI Designer with a focus on craft and execution.
@@ -661,11 +671,11 @@
       </p>
 
       <div class="tags">
-        <span class="tag"><span class="pin"></span>London, UK <span class="cn-inline">伦敦</span></span>
-        <span class="tag"><span class="pin"></span>Guangzhou, China <span class="cn-inline">广州</span></span>
+        <span class="tag"><span class="pin"></span>London, UK <span class="cn-inline">伦敦</span><span class="tag-time" data-tz="Europe/London">--:--</span></span>
+        <span class="tag"><span class="pin"></span>Guangzhou, China <span class="cn-inline">广州</span><span class="tag-time" data-tz="Asia/Shanghai">--:--</span></span>
       </div>
 
-      <a class="cta" href="#">Contact me <span class="cn-inline">联系我</span></a>
+      <a class="cta" href="#">联系我</a>
     </section>
 
     <section class="section" aria-labelledby="team-heading">
@@ -815,6 +825,26 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
   });
+
+  // Live city clocks
+  function updateCityTimes() {
+    document.querySelectorAll('.tag-time').forEach((el) => {
+      const tz = el.dataset.tz;
+      try {
+        const timeStr = new Intl.DateTimeFormat('zh-CN', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+          timeZone: tz
+        }).format(new Date());
+        el.textContent = timeStr;
+      } catch (e) {
+        el.textContent = '--:--';
+      }
+    });
+  }
+  updateCityTimes();
+  setInterval(updateCityTimes, 30000);
 </script>
 
 </body>
