@@ -509,8 +509,6 @@
     display: block;
     position: relative;
     border-radius: 20px;
-    padding: 44px 48px;
-    min-height: 320px;
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
@@ -521,6 +519,25 @@
   }
 
   .case-card.nh, .case-card.yj { background: transparent; }
+
+  .case-visual {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    background: transparent;
+    cursor: zoom-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .case-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
   .case-content {
     position: relative;
@@ -611,26 +628,6 @@
     font-weight: 500;
   }
 
-  .case-visual {
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    background: transparent;
-    cursor: zoom-in;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-  }
-
-  .case-visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
-
   .case-visual:hover,
   .case-visual:focus-visible {
     transform: scale(1.015);
@@ -674,9 +671,7 @@
   }
 
   @media (max-width: 720px) {
-    .case-card { padding: 32px 28px; min-height: auto; }
-    .case-content { max-width: 100%; }
-    .case-visual { position: static; width: 100%; margin-top: 28px; aspect-ratio: 16 / 9; }
+    .case-visual { width: 100%; }
   }
 
   /* ---------- Lightbox ---------- */
@@ -891,13 +886,13 @@
 
       <div class="case-list">
         <div class="case-entry">
-          <p class="case-lead">重构十年未更新的排班系统</p>
           <div class="case-tags">
             <span class="case-tag">B端系统设计</span>
             <span class="case-tag">复杂信息架构</span>
             <span class="case-tag">双模态交互</span>
             <span class="case-tag">可用性测试</span>
           </div>
+          <p class="case-lead">重构十年未更新的排班系统</p>
           <div class="case-title-small">南航翔翼<span class="cn-inline">Southern Airlines Digital Transformation</span></div>
           <div class="case-caption">
             <span>AInnovation Technology Co <span class="cn-inline">创新奇智</span></span>
@@ -915,13 +910,13 @@
         </div>
 
         <div class="case-entry">
-          <p class="case-lead">AI 在合上书之后才出现,把划线沉淀成跨书思维档案</p>
           <div class="case-tags">
             <span class="case-tag">AI产品设计</span>
             <span class="case-tag">概念项目</span>
             <span class="case-tag">商业逻辑倒推</span>
             <span class="case-tag">Vibe Coding</span>
           </div>
+          <p class="case-lead">AI 在合上书之后才出现,把划线沉淀成跨书思维档案</p>
           <div class="case-title-small">阅迹<span class="cn-inline">Yuè Jì — AI Reading Companion</span></div>
           <div class="case-caption">
             <span>Designer (me) <span class="cn-inline">设计师(我)</span></span>
