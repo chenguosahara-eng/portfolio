@@ -176,6 +176,69 @@
     opacity: 0.5;
   }
 
+  .video-embed {
+    margin-top: 32px;
+    width: 100%;
+    max-width: 720px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+    background: #000;
+    box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.6);
+  }
+
+  .video-embed video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+
+  .challenge-badge {
+    display: inline-flex;
+    width: fit-content;
+    padding: 5px 14px;
+    border-radius: 6px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .challenge-lede {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    max-width: 600px;
+  }
+
+  .challenge-desc {
+    padding-left: 14px;
+    border-left: 2px solid var(--accent);
+    margin-top: 16px !important;
+  }
+
+  .callout-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 28px;
+    max-width: 900px;
+    flex-wrap: wrap;
+  }
+
+  .callout-label {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    max-width: 340px;
+  }
+
+  .callout-label.align-right {
+    text-align: right;
+    margin-left: auto;
+  }
+
   .page-index {
     position: absolute;
     top: 40px;
@@ -383,7 +446,8 @@
     <button class="dash" data-target="page-2" data-index="02" data-title="背景与挑战" data-desc="是什么问题促成了这个项目的开始" aria-label="第 2 页:背景与挑战"></button>
     <button class="dash" data-target="page-3" data-index="03" data-title="研究发现" data-desc="关键洞察,以及它如何指向了设计方向" aria-label="第 3 页:研究发现"></button>
     <button class="dash" data-target="page-4" data-index="04" data-title="设计方案" data-desc="核心设计决策与最终呈现" aria-label="第 4 页:设计方案"></button>
-    <button class="dash" data-target="page-5" data-index="05" data-title="成果" data-desc="项目结果,或从中获得的反思" aria-label="第 5 页:成果"></button>
+    <button class="dash" data-target="page-5" data-index="05" data-title="历史记录相互高亮" data-desc="挑战三:调度页交互演示视频" aria-label="第 5 页:历史记录相互高亮"></button>
+    <button class="dash" data-target="page-6" data-index="06" data-title="成果" data-desc="项目结果,或从中获得的反思" aria-label="第 6 页:成果"></button>
   </div>
   <button class="nav-arrow" id="navDown" aria-label="下一页">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
@@ -396,7 +460,7 @@
   <div class="pv-desc" id="pvDesc">项目名称、一句话简介与基本信息</div>
 </div>
 
-<div class="page-counter"><span class="current" id="counterCurrent">1</span> / 5</div>
+<div class="page-counter"><span class="current" id="counterCurrent">1</span> / 6</div>
 
 <button class="restart-btn" id="restartBtn" aria-label="回到第一页 Restart">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
@@ -408,7 +472,7 @@
 
   <!-- Page 1 · Cover -->
   <section class="page" id="page-1">
-    <div class="page-index">01 / 05</div>
+    <div class="page-index">01 / 06</div>
     <div class="eyebrow">Case Study</div>
     <h1>项目名称占位 <span class="cn-inline" style="font-size:0.5em; display:block; margin-top:10px;">Project Name Placeholder</span></h1>
     <p class="lede">
@@ -432,7 +496,7 @@
 
   <!-- Page 2 · Background & Challenge -->
   <section class="page" id="page-2">
-    <div class="page-index">02 / 05</div>
+    <div class="page-index">02 / 06</div>
     <div class="eyebrow">01 背景与挑战</div>
     <h2>一句话点出核心挑战占位文字</h2>
     <p class="body-text">
@@ -442,7 +506,7 @@
 
   <!-- Page 3 · Research Insight -->
   <section class="page" id="page-3">
-    <div class="page-index">03 / 05</div>
+    <div class="page-index">03 / 06</div>
     <div class="eyebrow">02 研究发现</div>
     <h2>这里放你最关键的一条研究洞察</h2>
     <p class="body-text">
@@ -456,7 +520,7 @@
 
   <!-- Page 4 · Design Solution -->
   <section class="page" id="page-4">
-    <div class="page-index">04 / 05</div>
+    <div class="page-index">04 / 06</div>
     <div class="eyebrow">03 设计方案</div>
     <h2>这里放你的设计方案标题</h2>
     <p class="body-text">
@@ -468,10 +532,34 @@
     </div>
   </section>
 
-  <!-- Page 5 · Outcome -->
+  <!-- Page 5 · Video Demo -->
   <section class="page" id="page-5">
-    <div class="page-index">05 / 05</div>
-    <div class="eyebrow">04 成果</div>
+    <div class="page-index">05 / 06</div>
+    <div class="challenge-badge">挑战三</div>
+    <p class="challenge-lede">信息量巨大的调度页,如何用聪明的交互匹配用户行为</p>
+    <h2>历史记录相互高亮</h2>
+    <p class="body-text challenge-desc">
+      颜色不再区分航司后,调度员仍需要"看某家航司的整体排班情况"。<br>
+      相互高亮是替代颜色归属的交互方案。
+    </p>
+
+    <div class="callout-row">
+      <p class="callout-label">点击日历排班块 → 需求池高亮同一航司的待排申请</p>
+      <p class="callout-label align-right">点击需求池申请 → 日历高亮该航司历史排班记录</p>
+    </div>
+
+    <div class="video-embed">
+      <video controls preload="metadata" poster="">
+        <source src="videos/nanhang-highlight-demo.mp4" type="video/mp4">
+        你的浏览器不支持视频播放,请<a href="videos/nanhang-highlight-demo.mp4" style="color:var(--accent); text-decoration:underline;">点击下载</a>观看。
+      </video>
+    </div>
+  </section>
+
+  <!-- Page 6 · Outcome -->
+  <section class="page" id="page-6">
+    <div class="page-index">06 / 06</div>
+    <div class="eyebrow">05 成果</div>
     <h2>这里放项目成果或反思</h2>
     <p class="body-text">
       上线后的效果、可用性测试数据、或者如果还没有量化结果,也可以写你从这个项目中学到的具体一点。
