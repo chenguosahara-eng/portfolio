@@ -115,6 +115,13 @@
     color: var(--text-secondary);
     padding: 8px 0;
     transition: color 0.15s ease;
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
   }
 
   .sb-link:hover { color: var(--text-primary); }
@@ -177,6 +184,13 @@
 
   .contact-list .sb-link {
     padding: 7px 0;
+  }
+
+  .contact-list .copied-tip {
+    left: auto;
+    right: 0;
+    bottom: 110%;
+    transform: none;
   }
 
   .sidebar-footer {
@@ -306,21 +320,87 @@
     font-variant-numeric: tabular-nums;
   }
 
+  .contact-widget {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+  }
+
   .cta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 32px;
     padding: 12px 22px;
     border-radius: 8px;
-    background: var(--text-primary);
-    color: #0a0a0c;
+    background: var(--accent);
+    color: #fff;
     font-size: 14px;
     font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
     transition: transform 0.15s ease, background 0.15s ease;
   }
 
-  .cta:hover { background: var(--accent); color: #fff; transform: translateY(-1px); }
+  .cta:hover { background: #6aa8ff; transform: translateY(-1px); }
+
+  .contact-options {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transform: translateX(-8px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .contact-options.open {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .contact-chip {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .contact-chip:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .contact-chip svg { width: 16px; height: 16px; }
+
+  .copied-tip {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-primary);
+    color: #0a0a0c;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 9px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+  }
+
+  .copied-tip.show { opacity: 1; }
 
   /* ---------- Section: Team / Education ---------- */
 
@@ -639,9 +719,9 @@
 
     <div class="sb-section-label">Contact 联系方式</div>
     <div class="contact-list">
-      <a class="sb-link" href="#">Email</a>
-      <a class="sb-link" href="#">LinkedIn</a>
-      <a class="sb-link" href="#">Instagram</a>
+      <a class="sb-link" href="mailto:chenguosahara@gmail.com">邮件</a>
+      <button class="sb-link" type="button" data-copy="19927593358">号码<span class="copied-tip"></span></button>
+      <button class="sb-link" type="button" data-copy="Saharaxie">微信<span class="copied-tip"></span></button>
     </div>
 
     <div class="sidebar-footer">© 2026 Reese G Chen</div>
@@ -675,7 +755,23 @@
         <span class="tag"><span class="pin"></span>Guangzhou, China <span class="cn-inline">广州</span><span class="tag-time" data-tz="Asia/Shanghai">--:--</span></span>
       </div>
 
-      <a class="cta" href="#">联系我</a>
+      <div class="contact-widget">
+        <button class="cta" id="contactToggle" type="button" aria-expanded="false">Contact me</button>
+        <div class="contact-options" id="contactOptions">
+          <button class="contact-chip" data-copy="chenguosahara@gmail.com" data-label="Email 邮箱" aria-label="复制邮箱">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <span class="copied-tip"></span>
+          </button>
+          <button class="contact-chip" data-copy="19927593358" data-label="Phone 电话" aria-label="复制电话">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <span class="copied-tip"></span>
+          </button>
+          <button class="contact-chip" data-copy="Saharaxie" data-label="WeChat 微信" aria-label="复制微信号">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            <span class="copied-tip"></span>
+          </button>
+        </div>
+      </div>
     </section>
 
     <section class="section" aria-labelledby="team-heading">
@@ -845,6 +941,32 @@
   }
   updateCityTimes();
   setInterval(updateCityTimes, 30000);
+
+  // Contact widget: expand + copy to clipboard
+  const contactToggle = document.getElementById('contactToggle');
+  const contactOptions = document.getElementById('contactOptions');
+
+  if (contactToggle && contactOptions) {
+    contactToggle.addEventListener('click', () => {
+      const isOpen = contactOptions.classList.toggle('open');
+      contactToggle.setAttribute('aria-expanded', isOpen);
+    });
+  }
+
+  document.querySelectorAll('[data-copy]').forEach((chip) => {
+    chip.addEventListener('click', async () => {
+      const text = chip.dataset.copy;
+      const tip = chip.querySelector('.copied-tip');
+      try {
+        await navigator.clipboard.writeText(text);
+        tip.textContent = '已复制';
+      } catch (err) {
+        tip.textContent = '复制失败';
+      }
+      tip.classList.add('show');
+      setTimeout(() => tip.classList.remove('show'), 1400);
+    });
+  });
 </script>
 
 </body>
