@@ -537,6 +537,31 @@
     color: rgba(255, 255, 255, 0.7);
   }
 
+  .case-desc {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 320px;
+  }
+
+  .case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+    max-width: 320px;
+  }
+
+  .case-tag {
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
   .case-meta-row {
     display: flex;
     gap: 32px;
@@ -561,13 +586,13 @@
 
   .case-visual {
     position: absolute;
-    right: 40px;
-    top: 40px;
-    bottom: 40px;
-    width: 40%;
-    min-width: 200px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.05);
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 58%;
+    min-width: 220px;
+    border-radius: 0 20px 20px 0;
+    background: transparent;
     cursor: zoom-in;
     display: flex;
     align-items: center;
@@ -579,7 +604,7 @@
   .case-visual img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 
@@ -856,6 +881,13 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 16l7-11 4 7 3-5 6 9H2z"/></svg>
               </div>
               <div class="case-title">南航翔翼<span class="cn-inline">Southern Airlines Digital Transformation</span></div>
+              <p class="case-desc">重构十年未更新的排班系统</p>
+              <div class="case-tags">
+                <span class="case-tag">B端系统设计</span>
+                <span class="case-tag">复杂信息架构</span>
+                <span class="case-tag">双模态交互</span>
+                <span class="case-tag">可用性测试</span>
+              </div>
               <div class="case-meta-row">
                 <div class="meta-item"><div class="label">Main Role</div><div class="value">UX Designer</div></div>
                 <div class="meta-item"><div class="label">Date</div><div class="value">2024 Spring</div></div>
@@ -881,6 +913,13 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5a2 2 0 012-2h6l6 6v10a2 2 0 01-2 2H6a2 2 0 01-2-2V5z"/><path d="M12 3v6h6"/></svg>
               </div>
               <div class="case-title">阅迹<span class="cn-inline">Yuè Jì — AI Reading Companion</span></div>
+              <p class="case-desc">AI 在合上书之后才出现,把划线沉淀成跨书思维档案</p>
+              <div class="case-tags">
+                <span class="case-tag">AI产品设计</span>
+                <span class="case-tag">概念项目</span>
+                <span class="case-tag">商业逻辑倒推</span>
+                <span class="case-tag">Vibe Coding</span>
+              </div>
               <div class="case-meta-row">
                 <div class="meta-item"><div class="label">Main Role</div><div class="value">Product Designer</div></div>
                 <div class="meta-item"><div class="label">Date</div><div class="value">2026 Spring</div></div>
