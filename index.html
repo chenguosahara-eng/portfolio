@@ -572,7 +572,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .case-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .case-visual:hover,
@@ -583,12 +591,28 @@
   }
 
   .case-visual .zoom-icon {
+    position: relative;
+    z-index: 2;
     width: 22px;
     height: 22px;
-    color: rgba(255, 255, 255, 0.75);
+    color: #fff;
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .case-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .case-visual:hover::after,
+  .case-visual:focus-visible::after {
+    opacity: 1;
   }
 
   .case-visual:hover .zoom-icon,
@@ -838,7 +862,8 @@
                 <div class="meta-item"><div class="label">Duration</div><div class="value">1 Month</div></div>
               </div>
             </div>
-            <div class="case-visual" data-image="" data-alt="南航翔翼产品截图" role="button" tabindex="0" aria-label="放大查看南航翔翼产品截图">
+            <div class="case-visual" data-image="images/case-nanhang.jpg" data-alt="南航翔翼产品截图" role="button" tabindex="0" aria-label="放大查看南航翔翼产品截图">
+              <img src="images/case-nanhang.jpg" alt="南航翔翼产品截图" loading="lazy">
               <svg class="zoom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
             </div>
           </a>
@@ -862,7 +887,8 @@
                 <div class="meta-item"><div class="label">Duration</div><div class="value">Ongoing 持续中</div></div>
               </div>
             </div>
-            <div class="case-visual" data-image="" data-alt="阅迹产品截图" role="button" tabindex="0" aria-label="放大查看阅迹产品截图">
+            <div class="case-visual" data-image="images/case-yueji.jpg" data-alt="阅迹产品截图" role="button" tabindex="0" aria-label="放大查看阅迹产品截图">
+              <img src="images/case-yueji.jpg" alt="阅迹产品截图" loading="lazy">
               <svg class="zoom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
             </div>
           </a>
