@@ -123,84 +123,14 @@
     min-height: 0;
   }
 
-  .page-visual img {
+  .page-visual img,
+  .page-visual video {
     width: 100%;
     height: 100%;
     object-fit: contain;
     display: block;
     background: #0a0a0c;
   }
-
-  .page-visual.has-video {
-    position: relative;
-    cursor: pointer;
-  }
-
-  .play-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
-    background: rgba(10, 10, 12, 0.6);
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
-    transition: transform 0.18s ease, background 0.18s ease;
-  }
-
-  .play-overlay svg { width: 22px; height: 22px; margin-left: 3px; }
-
-  .page-visual.has-video:hover .play-overlay {
-    background: var(--accent);
-    border-color: var(--accent);
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-
-  .video-lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    background: rgba(0, 0, 0, 0.9);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 5vh 5vw;
-  }
-
-  .video-lightbox.open { display: flex; }
-
-  .video-lightbox video {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 10px;
-    box-shadow: 0 30px 90px -20px rgba(0, 0, 0, 0.8);
-  }
-
-  .video-lightbox-close {
-    position: fixed;
-    top: 28px;
-    right: 32px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid var(--border);
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.15s ease;
-  }
-
-  .video-lightbox-close:hover { background: rgba(255, 255, 255, 0.16); }
 
   .eyebrow {
     font-size: 12px;
@@ -610,11 +540,8 @@
       <span class="slide-number">08 / 21</span>
       <span class="slide-title">最终方案</span>
     </div>
-    <div class="page-visual has-video" data-video="images/nanhang/videos/slide8-demo.mp4" role="button" tabindex="0" aria-label="播放月视图/周视图切换演示视频">
-      <img src="images/nanhang/8.jpg" alt="南航翔翼项目 · 最终方案" loading="lazy">
-      <div class="play-overlay" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      </div>
+    <div class="page-visual">
+      <img src="images/nanhang/gifs/slide8-demo.gif" alt="南航翔翼项目 · 最终方案动态演示">
     </div>
   </section>
 
@@ -713,11 +640,8 @@
       <span class="slide-number">18 / 21</span>
       <span class="slide-title">历史记录相互高亮</span>
     </div>
-    <div class="page-visual has-video" data-video="images/nanhang/videos/slide18-demo.mp4" role="button" tabindex="0" aria-label="播放历史记录相互高亮演示视频">
-      <img src="images/nanhang/18.jpg" alt="南航翔翼项目 · 历史记录相互高亮" loading="lazy">
-      <div class="play-overlay" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      </div>
+    <div class="page-visual">
+      <img src="images/nanhang/gifs/slide18-demo.gif" alt="南航翔翼项目 · 历史记录相互高亮动态演示">
     </div>
   </section>
 
@@ -751,13 +675,6 @@
     </div>
   </section>
 
-</div>
-
-<div class="video-lightbox" id="videoLightbox">
-  <button class="video-lightbox-close" id="videoLightboxClose" aria-label="关闭视频">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-  </button>
-  <video id="lightboxVideo" controls playsinline></video>
 </div>
 
 <script>
@@ -846,41 +763,6 @@
   });
 
   setActive(0);
-
-  // Video lightbox
-  const videoLightbox = document.getElementById('videoLightbox');
-  const lightboxVideo = document.getElementById('lightboxVideo');
-  const videoLightboxClose = document.getElementById('videoLightboxClose');
-
-  function openVideoLightbox(src) {
-    lightboxVideo.src = src;
-    videoLightbox.classList.add('open');
-    lightboxVideo.play();
-  }
-
-  function closeVideoLightbox() {
-    videoLightbox.classList.remove('open');
-    lightboxVideo.pause();
-    lightboxVideo.currentTime = 0;
-  }
-
-  document.querySelectorAll('.page-visual.has-video').forEach((el) => {
-    el.addEventListener('click', () => openVideoLightbox(el.dataset.video));
-    el.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openVideoLightbox(el.dataset.video);
-      }
-    });
-  });
-
-  videoLightboxClose.addEventListener('click', closeVideoLightbox);
-  videoLightbox.addEventListener('click', (e) => {
-    if (e.target === videoLightbox) closeVideoLightbox();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && videoLightbox.classList.contains('open')) closeVideoLightbox();
-  });
 </script>
 
 </body>
