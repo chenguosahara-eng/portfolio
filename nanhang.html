@@ -132,6 +132,134 @@
     background: #0a0a0c;
   }
 
+  /* ---------- Text + media hybrid pages (8, 18) ---------- */
+
+  .slide-context {
+    width: 100%;
+    max-width: 1400px;
+    margin-bottom: 18px;
+  }
+
+  .context-badge {
+    display: inline-flex;
+    padding: 5px 14px;
+    border-radius: 6px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .context-lede {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .context-title {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.4vw, 26px);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .context-desc {
+    padding-left: 12px;
+    border-left: 2px solid var(--accent);
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 720px;
+  }
+
+  .callout-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+
+  .callout-label {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    max-width: 460px;
+  }
+
+  .callout-label.align-right {
+    text-align: right;
+    margin-left: auto;
+  }
+
+  .state-compare {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+
+  .state-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .state-tag {
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .state-name {
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .state-desc {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    max-width: 280px;
+  }
+
+  .state-transition {
+    font-size: 12px;
+    color: var(--accent);
+    line-height: 1.5;
+    text-align: center;
+    min-width: 160px;
+  }
+
+  .hybrid-visual {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hybrid-visual .crop-top {
+    width: 100%;
+    display: block;
+  }
+
+  .gif-stage {
+    background: #ebebeb;
+    padding: 0 7.8% 2.5%;
+  }
+
+  .gif-stage img {
+    width: 100%;
+    display: block;
+  }
+
   .eyebrow {
     font-size: 12px;
     letter-spacing: 0.1em;
@@ -541,7 +669,12 @@
       <span class="slide-title">最终方案</span>
     </div>
     <div class="page-visual">
-      <img src="images/nanhang/gifs/slide8-demo.gif" alt="南航翔翼项目 · 最终方案动态演示">
+      <div class="hybrid-visual">
+        <img class="crop-top" src="images/nanhang/8-top.jpg" alt="南航翔翼项目 · 最终方案">
+        <div class="gif-stage">
+          <img src="images/nanhang/gifs/slide8-demo.gif" alt="最终方案动态演示">
+        </div>
+      </div>
     </div>
   </section>
 
@@ -641,7 +774,12 @@
       <span class="slide-title">历史记录相互高亮</span>
     </div>
     <div class="page-visual">
-      <img src="images/nanhang/gifs/slide18-demo.gif" alt="南航翔翼项目 · 历史记录相互高亮动态演示">
+      <div class="hybrid-visual">
+        <img class="crop-top" src="images/nanhang/18-top.jpg" alt="南航翔翼项目 · 历史记录相互高亮">
+        <div class="gif-stage">
+          <img src="images/nanhang/gifs/slide18-demo.gif" alt="历史记录相互高亮动态演示">
+        </div>
+      </div>
     </div>
   </section>
 
