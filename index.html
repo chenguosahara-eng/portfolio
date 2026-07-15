@@ -474,12 +474,36 @@
     gap: 6px 10px;
     font-size: 12px;
     color: var(--text-tertiary);
-    margin-bottom: 12px;
+    margin-top: 12px;
   }
 
   .case-caption .cn-inline { font-size: 0.95em; }
 
   .case-caption-sep { color: var(--text-tertiary); opacity: 0.5; }
+
+  .case-lead {
+    font-family: var(--font-display);
+    font-size: clamp(19px, 2.2vw, 24px);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+    max-width: 640px;
+    margin-bottom: 14px;
+  }
+
+  .case-title-small {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-top: 12px;
+  }
+
+  .case-title-small .cn-inline {
+    margin-left: 6px;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: var(--text-tertiary);
+  }
 
   .case-card {
     display: block;
@@ -524,43 +548,44 @@
 
   .case-title {
     font-family: var(--font-display);
-    font-size: clamp(22px, 2.6vw, 28px);
-    font-weight: 800;
+    font-size: 15px;
+    font-weight: 700;
     color: var(--text-primary);
-    line-height: 1.25;
+    line-height: 1.4;
   }
 
   .case-title .cn-inline {
-    display: block;
-    margin-top: 8px;
-    font-size: 0.5em;
+    display: inline;
+    margin-top: 0;
+    margin-left: 6px;
+    font-size: 0.9em;
     font-weight: 500;
     color: var(--text-tertiary);
   }
 
   .case-desc {
-    margin-top: 14px;
-    font-size: 14px;
+    margin-top: 6px;
+    font-size: 13px;
     line-height: 1.55;
     color: var(--text-secondary);
-    max-width: 320px;
+    max-width: 420px;
   }
 
   .case-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 16px;
-    max-width: 320px;
+    gap: 6px;
+    margin-top: 10px;
+    max-width: 420px;
   }
 
   .case-tag {
-    padding: 5px 12px;
+    padding: 4px 10px;
     border-radius: 999px;
     background: var(--bg-elevated);
     border: 1px solid var(--border);
-    color: var(--text-primary);
-    font-size: 12px;
+    color: var(--text-secondary);
+    font-size: 11px;
     font-weight: 500;
   }
 
@@ -588,12 +613,8 @@
 
   .case-visual {
     position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 58%;
-    min-width: 220px;
-    border-radius: 16px;
+    inset: 0;
+    border-radius: 20px;
     background: transparent;
     cursor: zoom-in;
     display: flex;
@@ -870,6 +891,14 @@
 
       <div class="case-list">
         <div class="case-entry">
+          <p class="case-lead">重构十年未更新的排班系统</p>
+          <div class="case-tags">
+            <span class="case-tag">B端系统设计</span>
+            <span class="case-tag">复杂信息架构</span>
+            <span class="case-tag">双模态交互</span>
+            <span class="case-tag">可用性测试</span>
+          </div>
+          <div class="case-title-small">南航翔翼<span class="cn-inline">Southern Airlines Digital Transformation</span></div>
           <div class="case-caption">
             <span>AInnovation Technology Co <span class="cn-inline">创新奇智</span></span>
             <span class="case-caption-sep">/</span>
@@ -878,23 +907,6 @@
             <span>Design for <span class="cn-inline">设计作品</span></span>
           </div>
           <a class="case-card nh" href="nanhang.html" id="project-nanhang">
-            <div class="case-content">
-              <div class="case-logo" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 16l7-11 4 7 3-5 6 9H2z"/></svg>
-              </div>
-              <div class="case-title">南航翔翼<span class="cn-inline">Southern Airlines Digital Transformation</span></div>
-              <div class="case-tags">
-                <span class="case-tag">B端系统设计</span>
-                <span class="case-tag">复杂信息架构</span>
-                <span class="case-tag">双模态交互</span>
-                <span class="case-tag">可用性测试</span>
-              </div>
-              <div class="case-meta-row">
-                <div class="meta-item"><div class="label">Main Role</div><div class="value">UX Designer</div></div>
-                <div class="meta-item"><div class="label">Date</div><div class="value">2024 Spring</div></div>
-                <div class="meta-item"><div class="label">Duration</div><div class="value">1 Month</div></div>
-              </div>
-            </div>
             <div class="case-visual" data-image="images/case-nanhang.jpg" data-alt="南航翔翼产品截图" role="button" tabindex="0" aria-label="放大查看南航翔翼产品截图">
               <img src="images/case-nanhang.jpg" alt="南航翔翼产品截图" loading="lazy">
               <svg class="zoom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
@@ -903,29 +915,20 @@
         </div>
 
         <div class="case-entry">
+          <p class="case-lead">AI 在合上书之后才出现,把划线沉淀成跨书思维档案</p>
+          <div class="case-tags">
+            <span class="case-tag">AI产品设计</span>
+            <span class="case-tag">概念项目</span>
+            <span class="case-tag">商业逻辑倒推</span>
+            <span class="case-tag">Vibe Coding</span>
+          </div>
+          <div class="case-title-small">阅迹<span class="cn-inline">Yuè Jì — AI Reading Companion</span></div>
           <div class="case-caption">
             <span>Designer (me) <span class="cn-inline">设计师(我)</span></span>
             <span class="case-caption-sep">/</span>
             <span>Independent Project <span class="cn-inline">独立项目</span></span>
           </div>
           <a class="case-card yj" href="yueji.html" id="project-yueji">
-            <div class="case-content">
-              <div class="case-logo" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5a2 2 0 012-2h6l6 6v10a2 2 0 01-2 2H6a2 2 0 01-2-2V5z"/><path d="M12 3v6h6"/></svg>
-              </div>
-              <div class="case-title">阅迹<span class="cn-inline">Yuè Jì — AI Reading Companion</span></div>
-              <div class="case-tags">
-                <span class="case-tag">AI产品设计</span>
-                <span class="case-tag">概念项目</span>
-                <span class="case-tag">商业逻辑倒推</span>
-                <span class="case-tag">Vibe Coding</span>
-              </div>
-              <div class="case-meta-row">
-                <div class="meta-item"><div class="label">Main Role</div><div class="value">Product Designer</div></div>
-                <div class="meta-item"><div class="label">Date</div><div class="value">2026 Spring</div></div>
-                <div class="meta-item"><div class="label">Duration</div><div class="value">Ongoing 持续中</div></div>
-              </div>
-            </div>
             <div class="case-visual" data-image="images/case-yueji.jpg" data-alt="阅迹产品截图" role="button" tabindex="0" aria-label="放大查看阅迹产品截图">
               <img src="images/case-yueji.jpg" alt="阅迹产品截图" loading="lazy">
               <svg class="zoom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
